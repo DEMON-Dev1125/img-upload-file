@@ -9,7 +9,7 @@ export default function Fileupload() {
     setImage(URL.createObjectURL(files[0]));
   };
   const hiddenFileInput = React.useRef(null);
-  const handleClick = (event) => {
+  const handleClick = () => {
     hiddenFileInput.current.click();
   };
   return (
@@ -43,6 +43,13 @@ export default function Fileupload() {
           style={{ cursor: "pointer" }}
           onClick={handleClick}
         >
+          <input
+            id="file"
+            type="file"
+            ref={hiddenFileInput}
+            onChange={handleImgChange}
+            style={{ display: "none" }}
+          />
           <img src={image} width="100%" height="100%" />
         </div>
       )}
